@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulayan sa Paaralan | Pablo Lorenzo NHS</title>
+  <!-- Google Font & Font Awesome for icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f1f9e9;  /* very light green */
+      color: #1e3a2f;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER – deep green */
+    .main-header {
+      background: linear-gradient(145deg, #0f4f2e, #1b6e3f);
+      color: white;
+      padding: 32px 0 28px;
+      border-bottom: 6px solid #9bc88b;
+      box-shadow: 0 4px 12px rgba(0, 60, 0, 0.2);
+    }
+
+    .main-header h1 {
+      font-size: 3rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .main-header h1 i {
+      font-size: 3.2rem;
+      color: #e3ffcf;
+      filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.2));
+    }
+
+    .main-header .school {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-top: 8px;
+      opacity: 0.95;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .main-header .school i {
+      font-size: 1.8rem;
+      color: #d4f2c4;
+    }
+
+    .main-header .mem-badge {
+      background: #2b7a4b;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 40px;
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 1px solid #b1e6a1;
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+    }
+
+    /* SECTION general */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: #1a4d2a;
+      border-left: 10px solid #4caf50;
+      padding-left: 20px;
+    }
+
+    .section-subhead {
+      font-size: 1.2rem;
+      color: #2a6230;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    /* about + memorandum cards */
+    .card-light {
+      background: white;
+      border-radius: 32px;
+      padding: 36px 32px;
+      box-shadow: 0 20px 30px -10px rgba(40, 90, 40, 0.2);
+      border: 2px solid #bde0ab;
+      transition: transform 0.2s;
+    }
+
+    .card-light:hover {
+      transform: translateY(-6px);
+    }
+
+    .memorandum-block {
+      background: #d9f0cf;
+      border-left: 12px solid #1f7042;
+      padding: 30px 30px;
+      border-radius: 60px 20px 60px 20px;
+      margin: 40px 0 20px;
+      font-style: italic;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 0 #477a4c;
+    }
+
+    .memorandum-block i {
+      color: #1f543e;
+      margin-right: 15px;
+      font-size: 2rem;
+      vertical-align: middle;
+    }
+
+    .memorandum-block strong {
+      font-style: normal;
+      background: #f5ffec;
+      padding: 4px 12px;
+      border-radius: 30px;
+      color: #084d1d;
+    }
+
+    /* VEGETABLE GRID */
+    .veg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .veg-card {
+      background: white;
+      border-radius: 48px 20px 48px 20px;
+      padding: 30px 20px 24px;
+      text-align: center;
+      box-shadow: 0 12px 0 #427e4e, 0 8px 20px rgba(0,60,0,0.1);
+      transition: all 0.2s;
+      border: 2px solid #b1db9c;
+    }
+
+    .veg-card:hover {
+      box-shadow: 0 6px 0 #2b6e3a, 0 12px 28px rgba(0,80,0,0.2);
+      transform: translateY(-4px);
+    }
+
+    .veg-card i {
+      font-size: 4.2rem;
+      margin-bottom: 18px;
+      color: #1b7a3d;
+      background: #e3f5d8;
+      padding: 18px;
+      border-radius: 60px;
+      box-shadow: inset 0 -4px 0 #88b884;
+    }
+
+    .veg-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0a3f1e;
+    }
+
+    .veg-card p {
+      font-size: 0.95rem;
+      color: #2b5730;
+    }
+
+    /* benefits list */
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .benefit-item {
+      background: #e3f5da;
+      border-radius: 30px;
+      padding: 24px 22px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 3px solid #90b882;
+      box-shadow: 0 8px 0 #4f7e55;
+    }
+
+    .benefit-item i {
+      font-size: 2.8rem;
+      color: #1b6e3f;
+      background: white;
+      padding: 14px;
+      border-radius: 50%;
+      box-shadow: 0 4px 0 #357a42;
+    }
+
+    .benefit-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #123d20;
+    }
+
+    /* footer */
+    .footer {
+      background: #0d3f20;
+      color: #e3ffd3;
+      padding: 48px 0 32px;
+      border-top: 12px solid #6fa86b;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-info {
+      flex: 2;
+      min-width: 260px;
+    }
+
+    .footer-info h3 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+      color: #daf6c4;
+    }
+
+    .footer-info p {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-info i {
+      color: #b1e49b;
+      width: 28px;
+      font-size: 1.4rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px dashed #71a56b;
+      font-size: 1rem;
+      color: #bde0b0;
+    }
+
+    /* buttons / small extras */
+    .btn-green {
+      background: #398a4c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 20px;
+      border: 2px solid #b1f09b;
+      transition: 0.2s;
+    }
+
+    .btn-green:hover {
+      background: #185a2d;
+    }
+
+    hr.divider {
+      border: 3px solid #c0e0af;
+      width: 120px;
+      margin: 30px 0;
+    }
+
+    /* responsive touches */
+    @media (max-width: 700px) {
+      .main-header h1 {
+        font-size: 2.4rem;
+        flex-wrap: wrap;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER : lush green with school identity -->
+  <header class="main-header">
+    <div class="container">
+      <h1>
+        <i class="fas fa-seedling"></i> 
+        Gulayan sa Paaralan
+      </h1>
+      <div class="school">
+        <i class="fas fa-school"></i> Pablo Lorenzo National High School
+      </div>
+      <div class="mem-badge">
+        <i class="fas fa-scroll"></i> DepEd Memorandum response · Greening program · Health promotion
+      </div>
+    </div>
+  </header>
+
+  <!-- main content -->
+  <main>
+    <!-- BRIEF ABOUT + MEMORANDUM connection -->
+    <section>
+      <div class="container">
+        <div class="card-light">
+          <h2 class="section-title" style="border-left-color: #2e7d32;">
+            <i class="fas fa-hand-holding-heart" style="color: #236b36; margin-right: 12px;"></i> 
+            Our commitment to DepEd’s vision
+          </h2>
+          <p style="font-size: 1.3rem; margin-bottom: 24px; color: #1b4c2b;"><strong>Gulayan sa Paaralan</strong> at Pablo Lorenzo NHS is a direct response to DepEd Memorandum No. 293, series of 2007 (revitalized under OUA Memo 00-0522-2022), which directs all schools to establish vegetable gardens as a strategy for:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0;">
+            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-leaf" style="color:#206f33;"></i> food security</span>
+            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-heartbeat" style="color:#206f33;"></i> nutrition & health</span>
+            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-trowel" style="color:#206f33;"></i> hands-on agri-education</span>
+          </div>
+          <!-- Memorandum highlight -->
+          <div class="memorandum-block">
+            <i class="fas fa-quote-left"></i> 
+            <span>The school grounds shall be transformed into a sustainable vegetable garden — a <strong>“Gulayan sa Paaralan”</strong> — to promote health, climate resilience, and the DepEd core value of <em>Maka-kalikasan</em>.</span><br>
+            <span style="display: block; margin-top: 18px;">— from DepEd memorandum (series 2022), adopted by Pablo Lorenzo NHS.</span>
+          </div>
+          <p>Our students, teachers, and parents work together to cultivate native vegetables, making the campus a living classroom for good health and environmental stewardship.</p>
+          <hr class="divider">
+          <span><i class="fas fa-check-circle" style="color: #367a40;"></i> Since 2023, we have harvested more than 200 kg of fresh vegetables used for our school feeding program.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VEGETABLES we grow -->
+    <section style="background: #def2d2; border-radius: 80px 80px 0 0;">
+      <div class="container">
+        <h2 class="section-title" style="border-left-color: #0f6123;">
+          <i class="fas fa-carrot" style="color: #d45d1e; margin-right: 12px;"></i> 
+          Gulayan varieties
+        </h2>
+        <p class="section-subhead">From traditional favorites to leafy greens — all planted with love by PLNHS community</p>
+
+        <div class="veg-grid">
+          <!-- Card 1: eggplant (uses seedling icon + custom color) -->
+          <div class="veg-card">
+            <i class="fas fa-seedling" style="color:#5e3370; background: #f0e2fc;"></i>
+            <h3>Eggplant</h3>
+            <p>Rounded & glossy | high in fiber · used for school demos</p>
+          </div>
+          <!-- Card 2: okra -->
+          <div class="veg-card">
+            <i class="fas fa-leaf" style="color:#1d754b; background: #dcf5cd;"></i>
+            <h3>Okra</h3>
+            <p>Lady's finger · vitamins A, B6, C · student favorite</p>
+          </div>
+          <!-- Card 3: string beans -->
+          <div class="veg-card">
+            <i class="fas fa-seedling" style="color:#265e36; background: #e2f2bc;"></i>
+            <h3>String beans</h3>
+            <p>Sitaw · rich in iron · easy trellis gardening</p>
+          </div>
+          <!-- Card 4: tomato (apple-alt icon) -->
+          <div class="veg-card">
+            <i class="fas fa-apple-alt" style="color:#c93f3f; background: #ffefdd;"></i>
+            <h3>Tomato</h3>
+            <p>Roma & cherry · lycopene · used in feeding program</p>
+          </div>
+          <!-- Card 5: chili pepper (pepper-hot icon) -->
+          <div class="veg-card">
+            <i class="fas fa-pepper-hot" style="color:#c44508; background: #ffe4ce;"></i>
+            <h3>Chili</h3>
+            <p>Labuyo & green chillies · vitamin C · pest deterrent</p>
+          </div>
+          <!-- Card 6: squash -->
+          <div class="veg-card">
+            <i class="fas fa-seedling" style="color:#cb8d2f; background: #fcf0cf;"></i>
+            <h3>Squash</h3>
+            <p>Kalabasa · beta-carotene · planted along borders</p>
+          </div>
+          <!-- extra: malunggay (moringa) -->
+          <div class="veg-card">
+            <i class="fas fa-tree" style="color:#397d48; background: #daf2cb;"></i>
+            <h3>Malunggay</h3>
+            <p>Moringa · "green superfood" · leaves for nutribun</p>
+          </div>
+          <!-- extra: kangkong -->
+          <div class="veg-card">
+            <i class="fas fa-water" style="color:#256d47; background: #d2f0d2;"></i>
+            <h3>Kangkong</h3>
+            <p>Water spinach · easy hydroponics · iron rich</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin: 40px 0 10px;"><i class="fas fa-seedling" style="color:#31663d;"></i> ... and more: pechay, sili, upo, patola ...</p>
+      </div>
+    </section>
+
+    <!-- BENEFITS section (health & deped goals) -->
+    <section>
+      <div class="container">
+        <h2 class="section-title" style="border-left-color: #1f8b4c;">
+          <i class="fas fa-heart" style="color:#bb3f3f; margin-right: 16px;"></i>
+          Promoting good health & beyond
+        </h2>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <i class="fas fa-apple-alt"></i>
+            <span class="benefit-text">Fresh produce for supplementary feeding</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-brain"></i>
+            <span class="benefit-text">Hands-on science & agriculture lessons</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-hand-holding-heart"></i>
+            <span class="benefit-text">Community & parent involvement</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-sun-plant-wilt"></i>
+            <span class="benefit-text">Climate-smart school yard</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-utensils"></i>
+            <span class="benefit-text">Nutrition awareness & combat malnutrition</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-tree"></i>
+            <span class="benefit-text">Instills love for environment (Maka-kalikasan)</span>
+          </div>
+        </div>
+
+        <!-- extra call out -->
+        <div style="background:#c7e6b8; border-radius: 50px; padding: 30px; margin-top: 60px; border: 4px solid #3e7945;">
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center;">
+            <i class="fas fa-quote-right" style="font-size: 5rem; color: #1f6a3a; opacity: 0.3;"></i>
+            <div>
+              <h3 style="font-size: 2rem; color: #1e542e;">"Sa gulayan, kalusugan ay kayamanan."</h3>
+              <p style="font-size: 1.2rem;">— every harvest day at Pablo Lorenzo NHS, students bring home vegetables, extending the program's benefits to families.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER with school info -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3><i class="fas fa-leaf"></i> Gulayan sa Paaralan</h3>
+          <p><i class="fas fa-map-pin"></i> Pablo Lorenzo National High School, Mandug; Buhangin, Davao City</p>
+          <p><i class="fas fa-phone-alt"></i> (062) 955 1234 · gulayan@plnhs.edu.ph</p>
+          <p><i class="fas fa-calendar-alt"></i> Established 2012 · revitalized 2023</p>
+          <p><i class="fas fa-hand-sparkles"></i> A proud implementer of DepEd Gulayan sa Paaralan.</p>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <h4 style="color:#ccf0bb;">MEMORANDUM REFERENCE</h4>
+          <ul style="list-style: none; color: #c0e6af;">
+            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> DepEd Memo No. 293, s. 2007</li>
+            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> OUA Memo 00-0522-2022</li>
+            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> DM-CI-2020-00162</li>
+          </ul>
+          <div style="margin-top: 24px; background: #1a5a2e; border-radius: 60px; padding: 14px 20px; display: inline-block;">
+            <i class="fas fa-seedling"></i> #PlantHealthyPLNHS
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Pablo Lorenzo National High School — Gulayan sa Paaralan · all rights reserved · green theme for a greener future</p>
+        <p style="margin-top: 8px;"><i class="fas fa-heart" style="color:#bcf0a6;"></i> in service to DepEd's call for vegetation and health</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
