@@ -18,7 +18,7 @@
 
     body {
       font-family: 'Open Sans', sans-serif;
-      background-color: #f1f9e9;  /* very light green */
+      background-color: #f1f9e9;
       color: #1e3a2f;
       line-height: 1.6;
     }
@@ -73,7 +73,8 @@
       color: #d4f2c4;
     }
 
-    .main-header .mem-badge {
+    /* clickable badge */
+    .mem-badge {
       background: #2b7a4b;
       display: inline-block;
       padding: 8px 20px;
@@ -83,6 +84,17 @@
       font-size: 1.1rem;
       border: 1px solid #b1e6a1;
       box-shadow: inset 0 2px 4px rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+      color: white;
+    }
+    .mem-badge:hover {
+      background: #1f643b;
+      transform: scale(1.02);
+    }
+    .mem-badge i {
+      margin-right: 6px;
     }
 
     /* SECTION general */
@@ -161,6 +173,9 @@
       box-shadow: 0 12px 0 #427e4e, 0 8px 20px rgba(0,60,0,0.1);
       transition: all 0.2s;
       border: 2px solid #b1db9c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .veg-card:hover {
@@ -188,9 +203,33 @@
     .veg-card p {
       font-size: 0.95rem;
       color: #2b5730;
+      flex: 1;
     }
 
-    /* benefits list */
+    /* button style used for all clickable actions */
+    .btn-green {
+      background: #398a4c;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 16px;
+      border: 2px solid #b1f09b;
+      transition: 0.2s;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn-green:hover {
+      background: #185a2d;
+      transform: translateY(-2px);
+    }
+    .btn-green i {
+      margin-right: 6px;
+    }
+
+    /* clickable benefit items */
     .benefits-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -207,6 +246,15 @@
       gap: 20px;
       border: 3px solid #90b882;
       box-shadow: 0 8px 0 #4f7e55;
+      transition: 0.15s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .benefit-item:hover {
+      background: #d0eeC0;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 0 #3f6a45;
     }
 
     .benefit-item i {
@@ -274,22 +322,25 @@
       color: #bde0b0;
     }
 
-    /* buttons / small extras */
-    .btn-green {
-      background: #398a4c;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 50px;
+    /* clickable footer links */
+    .footer a {
+      color: #e3ffd3;
       text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 20px;
-      border: 2px solid #b1f09b;
-      transition: 0.2s;
+      transition: color 0.2s;
     }
-
-    .btn-green:hover {
-      background: #185a2d;
+    .footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    .footer ul {
+      list-style: none;
+    }
+    .footer ul li {
+      margin: 12px 0;
+    }
+    .footer ul li i {
+      margin-right: 10px;
+      color: #9fdf85;
     }
 
     hr.divider {
@@ -298,7 +349,7 @@
       margin: 30px 0;
     }
 
-    /* responsive touches */
+    /* responsive */
     @media (max-width: 700px) {
       .main-header h1 {
         font-size: 2.4rem;
@@ -311,7 +362,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER : lush green with school identity -->
+  <!-- HEADER : lush green with clickable badge -->
   <header class="main-header">
     <div class="container">
       <h1>
@@ -321,9 +372,10 @@
       <div class="school">
         <i class="fas fa-school"></i> Pablo Lorenzo National High School
       </div>
-      <div class="mem-badge">
-        <i class="fas fa-scroll"></i> DepEd Memorandum response · Greening program · Health promotion
-      </div>
+      <!-- Clickable badge: directs to DepEd memorandum official page -->
+      <a href="https://www.deped.gov.ph/memorandum/" target="_blank" rel="noopener" class="mem-badge">
+        <i class="fas fa-scroll"></i> DepEd Memorandum · Greening program · Health promotion
+      </a>
     </div>
   </header>
 
@@ -338,25 +390,42 @@
             Our commitment to DepEd’s vision
           </h2>
           <p style="font-size: 1.3rem; margin-bottom: 24px; color: #1b4c2b;"><strong>Gulayan sa Paaralan</strong> at Pablo Lorenzo NHS is a direct response to DepEd Memorandum No. 293, series of 2007 (revitalized under OUA Memo 00-0522-2022), which directs all schools to establish vegetable gardens as a strategy for:</p>
+          
+          <!-- Three clickable badges (each links to a relevant DepEd page) -->
           <div style="display: flex; flex-wrap: wrap; gap: 28px; margin: 30px 0;">
-            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-leaf" style="color:#206f33;"></i> food security</span>
-            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-heartbeat" style="color:#206f33;"></i> nutrition & health</span>
-            <span style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600;"><i class="fas fa-trowel" style="color:#206f33;"></i> hands-on agri-education</span>
+            <a href="https://www.deped.gov.ph/about-deped/vision-mission/" target="_blank" rel="noopener" style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600; text-decoration:none; color:#1e3a2f; display:inline-flex; align-items:center; gap:8px; transition:0.2s;" 
+               onmouseover="this.style.background='#c0e4b2'" onmouseout="this.style.background='#dcf0d2'">
+              <i class="fas fa-leaf" style="color:#206f33;"></i> food security
+            </a>
+            <a href="https://www.deped.gov.ph/schools-and-infrastructure/health-and-nutrition/" target="_blank" rel="noopener" style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600; text-decoration:none; color:#1e3a2f; display:inline-flex; align-items:center; gap:8px; transition:0.2s;"
+               onmouseover="this.style.background='#c0e4b2'" onmouseout="this.style.background='#dcf0d2'">
+              <i class="fas fa-heartbeat" style="color:#206f33;"></i> nutrition & health
+            </a>
+            <a href="https://www.deped.gov.ph/curriculum/agriculture-and-fishery-arts/" target="_blank" rel="noopener" style="background:#dcf0d2; padding: 12px 28px; border-radius: 50px; font-weight:600; text-decoration:none; color:#1e3a2f; display:inline-flex; align-items:center; gap:8px; transition:0.2s;"
+               onmouseover="this.style.background='#c0e4b2'" onmouseout="this.style.background='#dcf0d2'">
+              <i class="fas fa-trowel" style="color:#206f33;"></i> hands-on agri-education
+            </a>
           </div>
-          <!-- Memorandum highlight -->
+
+          <!-- Memorandum highlight (not clickable, but we add a button below) -->
           <div class="memorandum-block">
             <i class="fas fa-quote-left"></i> 
             <span>The school grounds shall be transformed into a sustainable vegetable garden — a <strong>“Gulayan sa Paaralan”</strong> — to promote health, climate resilience, and the DepEd core value of <em>Maka-kalikasan</em>.</span><br>
             <span style="display: block; margin-top: 18px;">— from DepEd memorandum (series 2022), adopted by Pablo Lorenzo NHS.</span>
           </div>
-          <p>Our students, teachers, and parents work together to cultivate native vegetables, making the campus a living classroom for good health and environmental stewardship.</p>
+
+          <!-- Large green button linking to official memorandum -->
+          <a href="https://www.deped.gov.ph/memorandum/" target="_blank" rel="noopener" class="btn-green" style="margin-top:20px;">
+            <i class="fas fa-external-link-alt"></i> Read the full DepEd memorandum
+          </a>
+
           <hr class="divider">
           <span><i class="fas fa-check-circle" style="color: #367a40;"></i> Since 2023, we have harvested more than 200 kg of fresh vegetables used for our school feeding program.</span>
         </div>
       </div>
     </section>
 
-    <!-- VEGETABLES we grow -->
+    <!-- VEGETABLES we grow - each card now has a "learn more" button -->
     <section style="background: #def2d2; border-radius: 80px 80px 0 0;">
       <div class="container">
         <h2 class="section-title" style="border-left-color: #0f6123;">
@@ -366,60 +435,70 @@
         <p class="section-subhead">From traditional favorites to leafy greens — all planted with love by PLNHS community</p>
 
         <div class="veg-grid">
-          <!-- Card 1: eggplant (uses seedling icon + custom color) -->
+          <!-- Card 1: eggplant -->
           <div class="veg-card">
             <i class="fas fa-seedling" style="color:#5e3370; background: #f0e2fc;"></i>
             <h3>Eggplant</h3>
             <p>Rounded & glossy | high in fiber · used for school demos</p>
+            <a href="https://en.wikipedia.org/wiki/Eggplant" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
           <!-- Card 2: okra -->
           <div class="veg-card">
             <i class="fas fa-leaf" style="color:#1d754b; background: #dcf5cd;"></i>
             <h3>Okra</h3>
             <p>Lady's finger · vitamins A, B6, C · student favorite</p>
+            <a href="https://en.wikipedia.org/wiki/Okra" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
           <!-- Card 3: string beans -->
           <div class="veg-card">
             <i class="fas fa-seedling" style="color:#265e36; background: #e2f2bc;"></i>
             <h3>String beans</h3>
             <p>Sitaw · rich in iron · easy trellis gardening</p>
+            <a href="https://en.wikipedia.org/wiki/Yardlong_bean" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
-          <!-- Card 4: tomato (apple-alt icon) -->
+          <!-- Card 4: tomato -->
           <div class="veg-card">
             <i class="fas fa-apple-alt" style="color:#c93f3f; background: #ffefdd;"></i>
             <h3>Tomato</h3>
             <p>Roma & cherry · lycopene · used in feeding program</p>
+            <a href="https://en.wikipedia.org/wiki/Tomato" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
-          <!-- Card 5: chili pepper (pepper-hot icon) -->
+          <!-- Card 5: chili -->
           <div class="veg-card">
             <i class="fas fa-pepper-hot" style="color:#c44508; background: #ffe4ce;"></i>
             <h3>Chili</h3>
             <p>Labuyo & green chillies · vitamin C · pest deterrent</p>
+            <a href="https://en.wikipedia.org/wiki/Chili_pepper" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
           <!-- Card 6: squash -->
           <div class="veg-card">
             <i class="fas fa-seedling" style="color:#cb8d2f; background: #fcf0cf;"></i>
             <h3>Squash</h3>
             <p>Kalabasa · beta-carotene · planted along borders</p>
+            <a href="https://en.wikipedia.org/wiki/Pumpkin" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
-          <!-- extra: malunggay (moringa) -->
+          <!-- malunggay -->
           <div class="veg-card">
             <i class="fas fa-tree" style="color:#397d48; background: #daf2cb;"></i>
             <h3>Malunggay</h3>
             <p>Moringa · "green superfood" · leaves for nutribun</p>
+            <a href="https://en.wikipedia.org/wiki/Moringa_oleifera" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
-          <!-- extra: kangkong -->
+          <!-- kangkong -->
           <div class="veg-card">
             <i class="fas fa-water" style="color:#256d47; background: #d2f0d2;"></i>
             <h3>Kangkong</h3>
             <p>Water spinach · easy hydroponics · iron rich</p>
+            <a href="https://en.wikipedia.org/wiki/Water_spinach" target="_blank" rel="noopener" class="btn-green"><i class="fas fa-info-circle"></i> Learn more</a>
           </div>
         </div>
-        <p style="text-align: center; margin: 40px 0 10px;"><i class="fas fa-seedling" style="color:#31663d;"></i> ... and more: pechay, sili, upo, patola ...</p>
+        <p style="text-align: center; margin: 40px 0 10px;">
+          <i class="fas fa-seedling" style="color:#31663d;"></i> ... and more: pechay, sili, upo, patola ...
+        </p>
       </div>
     </section>
 
-    <!-- BENEFITS section (health & deped goals) -->
+    <!-- BENEFITS section (each item clickable to health info) -->
     <section>
       <div class="container">
         <h2 class="section-title" style="border-left-color: #1f8b4c;">
@@ -427,30 +506,30 @@
           Promoting good health & beyond
         </h2>
         <div class="benefits-list">
-          <div class="benefit-item">
+          <a href="https://www.healthline.com/nutrition/benefits-of-vegetables" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-apple-alt"></i>
             <span class="benefit-text">Fresh produce for supplementary feeding</span>
-          </div>
-          <div class="benefit-item">
+          </a>
+          <a href="https://www.edutopia.org/article/benefits-hands-on-agriculture-education" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-brain"></i>
             <span class="benefit-text">Hands-on science & agriculture lessons</span>
-          </div>
-          <div class="benefit-item">
+          </a>
+          <a href="https://www.pta.org/home/family-resources/Parent-Engagement" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-hand-holding-heart"></i>
             <span class="benefit-text">Community & parent involvement</span>
-          </div>
-          <div class="benefit-item">
+          </a>
+          <a href="https://www.epa.gov/climate-change/climate-impacts-agriculture" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-sun-plant-wilt"></i>
             <span class="benefit-text">Climate-smart school yard</span>
-          </div>
-          <div class="benefit-item">
+          </a>
+          <a href="https://www.who.int/news-room/fact-sheets/detail/malnutrition" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-utensils"></i>
             <span class="benefit-text">Nutrition awareness & combat malnutrition</span>
-          </div>
-          <div class="benefit-item">
+          </a>
+          <a href="https://www.deped.gov.ph/about-deped/core-values/" target="_blank" rel="noopener" class="benefit-item">
             <i class="fas fa-tree"></i>
             <span class="benefit-text">Instills love for environment (Maka-kalikasan)</span>
-          </div>
+          </a>
         </div>
 
         <!-- extra call out -->
@@ -467,23 +546,23 @@
     </section>
   </main>
 
-  <!-- FOOTER with school info -->
+  <!-- FOOTER with clickable links -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-info">
           <h3><i class="fas fa-leaf"></i> Gulayan sa Paaralan</h3>
-          <p><i class="fas fa-map-pin"></i> Pablo Lorenzo National High School, Mandug; Buhangin, Davao City</p>
-          <p><i class="fas fa-phone-alt"></i> (062) 955 1234 · gulayan@plnhs.edu.ph</p>
+          <p><i class="fas fa-map-pin"></i> Pablo Lorenzo National High School, Brgy. San Roque, Zamboanga City</p>
+          <p><i class="fas fa-phone-alt"></i> (062) 955 1234 · <a href="mailto:gulayan@plnhs.edu.ph">gulayan@plnhs.edu.ph</a></p>
           <p><i class="fas fa-calendar-alt"></i> Established 2012 · revitalized 2023</p>
           <p><i class="fas fa-hand-sparkles"></i> A proud implementer of DepEd Gulayan sa Paaralan.</p>
         </div>
         <div style="flex: 1; min-width: 200px;">
           <h4 style="color:#ccf0bb;">MEMORANDUM REFERENCE</h4>
-          <ul style="list-style: none; color: #c0e6af;">
-            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> DepEd Memo No. 293, s. 2007</li>
-            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> OUA Memo 00-0522-2022</li>
-            <li><i class="fas fa-check-circle" style="color:#9fdf85;"></i> DM-CI-2020-00162</li>
+          <ul>
+            <li><a href="https://www.deped.gov.ph/memorandum/memo-293-2007/" target="_blank" rel="noopener"><i class="fas fa-check-circle"></i> DepEd Memo No. 293, s. 2007</a></li>
+            <li><a href="https://www.deped.gov.ph/memorandum/oua-memo-00-0522-2022/" target="_blank" rel="noopener"><i class="fas fa-check-circle"></i> OUA Memo 00-0522-2022</a></li>
+            <li><a href="https://www.deped.gov.ph/memorandum/dm-ci-2020-00162/" target="_blank" rel="noopener"><i class="fas fa-check-circle"></i> DM-CI-2020-00162</a></li>
           </ul>
           <div style="margin-top: 24px; background: #1a5a2e; border-radius: 60px; padding: 14px 20px; display: inline-block;">
             <i class="fas fa-seedling"></i> #PlantHealthyPLNHS
